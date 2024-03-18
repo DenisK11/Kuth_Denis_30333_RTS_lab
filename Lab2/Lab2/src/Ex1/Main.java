@@ -2,8 +2,16 @@ package Ex1;
 
 public class Main
 {
-    public static void main(String[] args)
+    private static final int noOfThreads = 6;
+    private static final int processorLoad = 100000000;
+
+    public static void main(String args[])
     {
-        
+        Window win = new Window(noOfThreads);
+
+        for(int i = 0; i < noOfThreads; i++)
+        {
+            new Fir(i, i + 2, win, processorLoad).start();
+        }
     }
 }
